@@ -27,6 +27,10 @@ deploy: manifests
 deploy-dev: manifests
 	./image_patch_dev.sh
 	kustomize build config/overlays/development | kubectl apply -f -
+	
+generate-dev: manifests
+	./image_patch_dev.sh
+	kustomize build config/overlays/development
 
 undeploy:
 	kustomize build config/default | kubectl delete -f -
