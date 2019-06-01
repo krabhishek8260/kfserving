@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "test"
+echo "$IMG"
 IMG=$(ko resolve -f config/default/manager/manager.yaml | grep 'image:' | awk '{print $2}')
 echo "$IMG"
 if [ -z ${IMG} ]; then exit; fi
