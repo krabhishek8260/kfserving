@@ -29,6 +29,7 @@ deploy-dev: manifests
 	kustomize build config/overlays/development | kubectl apply -f -
 	
 generate-dev: manifests
+        @echo "generating docker image"
         docker build . -t ${IMG}
 	@echo "updating kustomize image patch file for manager resource"
 
